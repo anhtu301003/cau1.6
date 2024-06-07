@@ -1,3 +1,18 @@
+import subprocess
+import sys
+
+def install(package):
+    subprocess.check_call([sys.executable, "-m", "pip", "install", package])
+
+# Đọc danh sách thư viện từ file requirement.txt
+with open('requirement.txt') as f:
+    packages = f.read().splitlines()
+
+# Cài đặt từng thư viện
+for package in packages:
+    install(package)
+
+
 import streamlit as st
 import pandas as pd
 import numpy as np
